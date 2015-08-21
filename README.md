@@ -1,2 +1,2 @@
 # IOSMS
-Images over SMS
+Allows you to send Images over SMS wihtout using data
