@@ -6,3 +6,6 @@
 /build
 /captures
 *.pyc
+*.out
+progress
+processed
