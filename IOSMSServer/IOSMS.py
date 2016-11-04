@@ -3,13 +3,13 @@ import subprocess
 import twilio.twiml
 import base64
 import re
-from PIL import Image
 
 app = Flask(__name__)
 
 @app.route("/", methods=['GET', 'POST'])
 def respond():
     body = request.values.get('Body', None)
+    print("This is the body: %s" % body)
     response = process_input(body)
     resp = twilio.twiml.Response()
     if response == None:
@@ -20,13 +20,15 @@ def respond():
 
 
 def process_input(input):
-    if input == "Start Image":
-    	with open('progress', 'w') as progress:
+    if "Start Image" in input:
+        imageName = input[24:]
+    	with open('progress', 'w+') as progress:
             progress.write("Started")
-	with open('processed', 'w') as processed:
+	with open('processed', 'w+') as processed:
 	    processed.write('0')
-        print("Starting processing")
-	return "Starting processing"
+        printString = "Starting processing image %s" % (imageName)
+        print(printString)
+	return printString
     elif 'texts were sent' in input:
         repart = re.findall('(.+) texts were sent', input)
     	number = repart[0]
@@ -38,7 +40,7 @@ def process_input(input):
     	repart = re.findall('\$\$-(.+)-\$\$.*', input)
         number = int(repart[0])
 	filename = "imagelog/%s.out" % number
-        with open(filename, 'w') as imagelog:
+        with open(filename, 'w+') as imagelog:
             imagelog.write(input)
 	
         parts = 0
@@ -80,13 +82,13 @@ def check_and_save():
 		initial = initial[10:]
 		imagetext += initial
 				
-        with open('out.txt', 'w') as output:
+        with open('out.txt', 'w+') as output:
 	    output.write(imagetext)
 
-        with open('out.bmp', 'wb') as image:
+        with open('out.jpg', 'wb') as image:
 	    image.write(base64.b64decode(imagetext))
 
 	return("Done Processing Image")
 
 if __name__ == "__main__":
-	app.run(debug=True)
+	app.run(debug=True, host='0.0.0.0')
