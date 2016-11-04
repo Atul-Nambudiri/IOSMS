@@ -1,3 +1,5 @@
+from lib.db_access import DBAccess
+
 from flask import Flask, request, redirect
 import subprocess
 import twilio.twiml
@@ -5,6 +7,7 @@ import base64
 import re
 
 app = Flask(__name__)
+db_access = DBAccess('main.db')
 
 @app.route("/", methods=['GET', 'POST'])
 def respond():
@@ -21,74 +24,49 @@ def respond():
 
 def process_input(input):
     if "Start Image" in input:
-        imageName = input[24:]
-    	with open('progress', 'w+') as progress:
-            progress.write("Started")
-	with open('processed', 'w+') as processed:
-	    processed.write('0')
-        printString = "Starting processing image %s" % (imageName)
-        print(printString)
-	return printString
+        image_name = input[24:]
+        db_access.add_image(image_name)
+        print_string = "Starting processing image %s" % (image_name)
+        print(print_string)
+	return print_string
     elif 'texts were sent' in input:
-        repart = re.findall('(.+) texts were sent', input)
-    	number = repart[0]
-        with open('progress', 'w') as progress:
-            progress.write(number)
-        resp = check_and_save()
-        return resp			
+        repart = re.search('(.+) texts were sent for (.+)', input)
+    	number = repart.group(0)
+        image_name = repart.group(1)
+        db_access.add_total_section_count(image_name, number)
+        return check_and_save(image_name)
     else:
-    	repart = re.findall('\$\$-(.+)-\$\$.*', input)
-        number = int(repart[0])
-	filename = "imagelog/%s.out" % number
-        with open(filename, 'w+') as imagelog:
-            imagelog.write(input)
-	
-        parts = 0
-	with open('processed', 'r') as processed:
-	    parts = int(processed.read())
-	    parts += 1
+    	repart = re.findall('\$\$-(.+)-\$\$(.*)', input)
+        
+        section = int(repart.group(0)[:4])
+        image_name = repart.group(0)[4:]
+	blob = repart.group(1)
+        
+        received_sections = db_access.get_received_sections_count(image_name)
+        total_sections = db_access.get_total_sections_count(image_name)
 
-	with open('processed', 'w') as processed:
-            processed.write(str(parts))
+        db_access,add_image_section(image_name, section, blob)
+        db_access.update_received_sections(image_name, received_sections + 1)
+        return check_and_save(image_name)
 
-	resp = check_and_save()
-        return resp
-
-def check_and_save():
+def check_and_save(image_name):
     """
     Check if the image is ready to save. Only saves when all parts of the image have been sent
     """
-    progress = 0
-    processed = 0
-    with open('progress', 'r') as progress_file:
-    	progress = progress_file.read()
-    	if progress == "Started":
-    	    return None
-    	else:
-    	    progress = int(progress)
+    received_sections = db_access.get_received_sections_count(image_name)
+    total_sections = db_access.get_total_sections_count(image_name)
     
-    with open('processed', 'r') as processed_file:
-        processed = int(processed_file.read())
+    if received_sections != total_sections:
+        return None
+    
+    sections = get_image_sections(image_name)
+    image_text = "".join([section[0] for section in sections])
 
-    print("Progress %s" % progress)
-    print("Processed %s" % processed)
-    if progress == processed:
-    	print("Done Processing Image")
-	imagetext = ''
-	for number in range(processed):
-            filename = "imagelog/%s.out" % number
-	    with open(filename, 'r') as imagelog:
-                initial = imagelog.read()
-		initial = initial[10:]
-		imagetext += initial
-				
-        with open('out.txt', 'w+') as output:
-	    output.write(imagetext)
-
-        with open('out.jpg', 'wb') as image:
-	    image.write(base64.b64decode(imagetext))
-
-	return("Done Processing Image")
+    with open('output/%s.jpg' % (image_name), 'wb') as image:
+	image.write(base64.b64decode(image_text))
+    
+    db_access.delete_image_and_info(image_name)
+    return("Done Processing Image: %s" % (image_name))
 
 if __name__ == "__main__":
 	app.run(debug=True, host='0.0.0.0')

@@ -1,0 +1,3 @@
+CREATE TABLE images(image_name text, total_sections_count integer, received_sections integer);
+
+CREATE TABLE image_sections(image_name text, section_num integer, section_text blob);

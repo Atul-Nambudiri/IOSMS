@@ -6,6 +6,5 @@
 /build
 /captures
 *.pyc
-*.out
-progress
-processed
+/output
+main.db
