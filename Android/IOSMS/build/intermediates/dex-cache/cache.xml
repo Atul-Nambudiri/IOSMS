@@ -2,32 +2,109 @@
 <items version="2" >
 
     <item
-        jar="C:\Users\Atul\AndroidStudioProjects\IOT\app\build\intermediates\exploded-aar\com.android.support\support-v4\22.2.0\jars\classes.jar"
+        jar="C:\Users\atuln\AndroidStudioProjects\IOSMS\Android\IOSMS\app\build\intermediates\exploded-aar\com.android.support\animated-vector-drawable\25.0.0\jars\classes.jar"
         jumboMode="false"
-        revision="22.0.1"
-        sha1="1ee588ff2c4daf7b97c1cbf922a6c7f027285c2f">
-        <dex dex="C:\Users\Atul\AndroidStudioProjects\IOT\app\build\intermediates\pre-dexed\debug\classes-aa2a076f698ca15f1c831c0eb8690b25cfd08da6.jar" />
+        revision="25.0.0"
+        sha1="53a420cd4f49274db6bd43475f8006ba67ef6bbd">
+        <dex dex="C:\Users\atuln\AndroidStudioProjects\IOSMS\Android\IOSMS\app\build\intermediates\pre-dexed\debug\classes-90ae46cebe25c1aeb0cc2c741b13ace3f15baf36.jar" />
     </item>
     <item
-        jar="C:\Users\Atul\AndroidStudioProjects\IOT\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\22.2.0\jars\classes.jar"
+        jar="C:\Users\atuln\AndroidStudioProjects\IOSMS\Android\IOSMS\app\build\intermediates\exploded-aar\com.android.support\support-compat\25.0.0\jars\libs\internal_impl-25.0.0.jar"
         jumboMode="false"
-        revision="22.0.1"
-        sha1="73753982da6bde518f3a4c6b372749981d14d1a0">
-        <dex dex="C:\Users\Atul\AndroidStudioProjects\IOT\app\build\intermediates\pre-dexed\debug\classes-2f344674504d234222633d599854ae8fad6425da.jar" />
+        revision="25.0.0"
+        sha1="f2e3b9bc1ec25f652e8007ce7774c991e38f6a00">
+        <dex dex="C:\Users\atuln\AndroidStudioProjects\IOSMS\Android\IOSMS\app\build\intermediates\pre-dexed\debug\internal_impl-25.0.0-f2b19ba724c28a237e24c1e4cf8ced0cc305a385.jar" />
     </item>
     <item
-        jar="C:\Users\Atul\AndroidStudioProjects\IOT\app\build\intermediates\exploded-aar\com.android.support\support-v4\22.2.0\jars\libs\internal_impl-22.2.0.jar"
+        jar="C:\Users\atuln\AndroidStudioProjects\IOSMS\Android\IOSMS\app\build\intermediates\exploded-aar\com.android.support\support-fragment\25.0.0\jars\libs\internal_impl-25.0.0.jar"
         jumboMode="false"
-        revision="22.0.1"
-        sha1="57f2ab85c164ff1676ec64dee787981c046fab79">
-        <dex dex="C:\Users\Atul\AndroidStudioProjects\IOT\app\build\intermediates\pre-dexed\debug\internal_impl-22.2.0-ac98b8d153b1b37540c04a33255dad05b2fd0863.jar" />
+        revision="25.0.0"
+        sha1="ee5faf4dee5b6a4364bf51587871047dde7c703a">
+        <dex dex="C:\Users\atuln\AndroidStudioProjects\IOSMS\Android\IOSMS\app\build\intermediates\pre-dexed\debug\internal_impl-25.0.0-3a55baa3459fd9327dfc0cdccd86ea49a8ef3a91.jar" />
     </item>
     <item
-        jar="C:\Program Files (x86)\Android\sdk\extras\android\m2repository\com\android\support\support-annotations\22.2.0\support-annotations-22.2.0.jar"
+        jar="C:\Users\atuln\AndroidStudioProjects\IOSMS\Android\IOSMS\app\build\intermediates\exploded-aar\com.android.support\support-v4\25.0.0\jars\classes.jar"
         jumboMode="false"
-        revision="22.0.1"
-        sha1="66b42a1f3eb7676070b7ef7f14b603483aecbee1">
-        <dex dex="C:\Users\Atul\AndroidStudioProjects\IOT\app\build\intermediates\pre-dexed\debug\support-annotations-22.2.0-715dc6cec26a2fc482c2dfbc751b0f47337bf5bb.jar" />
+        revision="25.0.0"
+        sha1="d7c42c80f6509b9ea4db28ca7859ffae08ec5741">
+        <dex dex="C:\Users\atuln\AndroidStudioProjects\IOSMS\Android\IOSMS\app\build\intermediates\pre-dexed\debug\classes-089203584db59b0037959b36ea00f887afcca16b.jar" />
+    </item>
+    <item
+        jar="C:\Users\atuln\AppData\Local\Android\sdk\extras\android\m2repository\com\android\support\support-annotations\25.0.0\support-annotations-25.0.0.jar"
+        jumboMode="false"
+        revision="25.0.0"
+        sha1="a22d2cc94da87b254451fa8ed28afc30b4653773">
+        <dex dex="C:\Users\atuln\AndroidStudioProjects\IOSMS\Android\IOSMS\app\build\intermediates\pre-dexed\debug\support-annotations-25.0.0-5eb08a16ccd18260fa4a569e7374ea06ada71a11.jar" />
+    </item>
+    <item
+        jar="C:\Users\atuln\AndroidStudioProjects\IOSMS\Android\IOSMS\app\build\intermediates\exploded-aar\com.android.support\support-core-ui\25.0.0\jars\classes.jar"
+        jumboMode="false"
+        revision="25.0.0"
+        sha1="26674000177e45447a0326a6ad84612761199a13">
+        <dex dex="C:\Users\atuln\AndroidStudioProjects\IOSMS\Android\IOSMS\app\build\intermediates\pre-dexed\debug\classes-63dc10fa47ed9ea3d2620b8d6282fda005f19261.jar" />
+    </item>
+    <item
+        jar="C:\Users\atuln\AndroidStudioProjects\IOSMS\Android\IOSMS\app\build\intermediates\exploded-aar\com.android.support\support-media-compat\25.0.0\jars\libs\internal_impl-25.0.0.jar"
+        jumboMode="false"
+        revision="25.0.0"
+        sha1="665d21a8a069c96b4d9e8b434f5096d865b4e261">
+        <dex dex="C:\Users\atuln\AndroidStudioProjects\IOSMS\Android\IOSMS\app\build\intermediates\pre-dexed\debug\internal_impl-25.0.0-d9cc351ce0ccd12c6a16ec8b99868f809a97df95.jar" />
+    </item>
+    <item
+        jar="C:\Users\atuln\AndroidStudioProjects\IOSMS\Android\IOSMS\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\25.0.0\jars\classes.jar"
+        jumboMode="false"
+        revision="25.0.0"
+        sha1="8bc45ce1f63d1a391fd38b32a201be5a42f9c95d">
+        <dex dex="C:\Users\atuln\AndroidStudioProjects\IOSMS\Android\IOSMS\app\build\intermediates\pre-dexed\debug\classes-8065be831e27b821b40011e81ac28ad3d0e86df0.jar" />
+    </item>
+    <item
+        jar="C:\Users\atuln\AndroidStudioProjects\IOSMS\Android\IOSMS\app\build\intermediates\exploded-aar\com.android.support\support-core-utils\25.0.0\jars\libs\internal_impl-25.0.0.jar"
+        jumboMode="false"
+        revision="25.0.0"
+        sha1="3b61a70884adaf0be3fc06c70c801e3e6df13133">
+        <dex dex="C:\Users\atuln\AndroidStudioProjects\IOSMS\Android\IOSMS\app\build\intermediates\pre-dexed\debug\internal_impl-25.0.0-d8200d6500b8efb01f3324c6fe30e9c2c2210d41.jar" />
+    </item>
+    <item
+        jar="C:\Users\atuln\AndroidStudioProjects\IOSMS\Android\IOSMS\app\build\intermediates\exploded-aar\com.android.support\support-vector-drawable\25.0.0\jars\classes.jar"
+        jumboMode="false"
+        revision="25.0.0"
+        sha1="d29714cc76b38157e3cbd034c66e1ec808eb4c19">
+        <dex dex="C:\Users\atuln\AndroidStudioProjects\IOSMS\Android\IOSMS\app\build\intermediates\pre-dexed\debug\classes-6fbf960d6d6b12087209e1cd9f12169fa8eb19bb.jar" />
+    </item>
+    <item
+        jar="C:\Users\atuln\AndroidStudioProjects\IOSMS\Android\IOSMS\app\build\intermediates\exploded-aar\com.android.support\support-fragment\25.0.0\jars\classes.jar"
+        jumboMode="false"
+        revision="25.0.0"
+        sha1="07daa0b6e1d455c82a38422ffe287c18823d339a">
+        <dex dex="C:\Users\atuln\AndroidStudioProjects\IOSMS\Android\IOSMS\app\build\intermediates\pre-dexed\debug\classes-0106bfafaef71a9fd2eac1dced99db9a4e2d24e6.jar" />
+    </item>
+    <item
+        jar="C:\Users\atuln\AndroidStudioProjects\IOSMS\Android\IOSMS\app\build\intermediates\exploded-aar\com.android.support\support-core-ui\25.0.0\jars\libs\internal_impl-25.0.0.jar"
+        jumboMode="false"
+        revision="25.0.0"
+        sha1="e5343c9d19cb19ff55f6b268c7f3fe8c9d224f6f">
+        <dex dex="C:\Users\atuln\AndroidStudioProjects\IOSMS\Android\IOSMS\app\build\intermediates\pre-dexed\debug\internal_impl-25.0.0-c107849e74a6af4cc206f4fc02ab09e8758aea9f.jar" />
+    </item>
+    <item
+        jar="C:\Users\atuln\AndroidStudioProjects\IOSMS\Android\IOSMS\app\build\intermediates\exploded-aar\com.android.support\support-media-compat\25.0.0\jars\classes.jar"
+        jumboMode="false"
+        revision="25.0.0"
+        sha1="76fb65a4b41ea42dab8a1310ed772a2420c96b52">
+        <dex dex="C:\Users\atuln\AndroidStudioProjects\IOSMS\Android\IOSMS\app\build\intermediates\pre-dexed\debug\classes-9d9146f4eea63ded0ddb0bda1ea74218b8092546.jar" />
+    </item>
+    <item
+        jar="C:\Users\atuln\AndroidStudioProjects\IOSMS\Android\IOSMS\app\build\intermediates\exploded-aar\com.android.support\support-compat\25.0.0\jars\classes.jar"
+        jumboMode="false"
+        revision="25.0.0"
+        sha1="75b1f366ff0bbc78f8b1f7cf0dc82e7c53afef6a">
+        <dex dex="C:\Users\atuln\AndroidStudioProjects\IOSMS\Android\IOSMS\app\build\intermediates\pre-dexed\debug\classes-2d0b604f9fa4b957d22deb52e3fe1159396900ef.jar" />
+    </item>
+    <item
+        jar="C:\Users\atuln\AndroidStudioProjects\IOSMS\Android\IOSMS\app\build\intermediates\exploded-aar\com.android.support\support-core-utils\25.0.0\jars\classes.jar"
+        jumboMode="false"
+        revision="25.0.0"
+        sha1="4ccbcda5c72027c7f7c14be9ff8640d9cb0d8da0">
+        <dex dex="C:\Users\atuln\AndroidStudioProjects\IOSMS\Android\IOSMS\app\build\intermediates\pre-dexed\debug\classes-5fb584f83bbfe0994a087a582feb97be03eaf6a8.jar" />
     </item>
 
 </items>
