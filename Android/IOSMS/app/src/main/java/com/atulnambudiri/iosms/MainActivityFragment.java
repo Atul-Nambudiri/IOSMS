@@ -36,10 +36,12 @@ import java.util.regex.Pattern;
 public class MainActivityFragment extends Fragment {
     final int SELECT_IMAGE = 12;
     TextView textToDisplay;
-    static String phoneNumber = "6304513493";
-    static String numberBufferStart = "$$-";
-    static String numberBufferEnd = "-$$";
-    static int numberBufferLength = 10;
+    static String phoneNumber = "6305213089";
+    static String numberAndNameBufferStart = "$$-";
+    static String numberAndNameBufferEnd = "-$$";
+    static int numberLength = 4;
+    static int nameLength = 10; //The maximum length an image name can be. If the length is greater than this, it gets concatenated
+    static int numberAndNameBufferLength = numberLength + nameLength + numberAndNameBufferEnd.length() + numberAndNameBufferStart.length();
     static int smsLength = 160;
     private boolean canSendMessages;
 
@@ -103,7 +105,9 @@ public class MainActivityFragment extends Fragment {
         Pattern pattern = Pattern.compile(".*\\/(.*)");
         Matcher matcher = pattern.matcher(result);
         if(matcher.find()) {
-            return matcher.group(1);
+            String name = matcher.group(1);
+            name = name.substring(0, name.length() - 4);
+            return name.substring(0, Math.min(name.length(), 10)); //Concatenate name of image if too long
         }
         return result;
     }
@@ -139,25 +143,25 @@ public class MainActivityFragment extends Fragment {
             int sentCounter = 0;
             sendText("Start Image. Image Name: " + imageName);
             try {
-                Thread.sleep(1000); //Sleep for a bit so that the initial message has some time to be sent
+                Thread.sleep(3000); //Sleep for a bit so that the initial message has some time to be sent
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
-            for(int i = 0; i < imageText.length(); i += smsLength - numberBufferLength) {
-                int end = i + smsLength - numberBufferLength > imageText.length() ? imageText.length() : i + smsLength - numberBufferLength;
+            for(int i = 0; i < imageText.length(); i += smsLength - numberAndNameBufferLength) {
+                int end = i + smsLength - numberAndNameBufferLength > imageText.length() ? imageText.length() : i + smsLength - numberAndNameBufferLength;
                 String number = String.format("%04d", sentCounter);
-                String beginning = numberBufferStart + number + numberBufferEnd;
+                String beginning = numberAndNameBufferStart + number + imageName + numberAndNameBufferEnd;
                 String imagePortion = beginning + imageText.substring(i, end);
                 sendText(imagePortion);
                 Log.d("Text Sending", "Sent Part of the image");
                 try {
-                    Thread.sleep(1000);
+                    Thread.sleep(3000);
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
                 sentCounter ++;
             }
-            sendText(Integer.toString(sentCounter) + " texts were sent");
+            sendText(Integer.toString(sentCounter) + " texts were sent for " + imageName);
             sentCounter += 2;
             Log.d("Sent Counter", "Sent Counter: " + Integer.toString(sentCounter));
             return Integer.toString(sentCounter);
