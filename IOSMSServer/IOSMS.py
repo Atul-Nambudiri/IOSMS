@@ -30,22 +30,24 @@ def process_input(input):
         print(print_string)
 	return print_string
     elif 'texts were sent' in input:
-        repart = re.search('(.+) texts were sent for (.+)', input)
-    	number = repart.group(0)
-        image_name = repart.group(1)
+        repart = re.match('(.+) texts were sent for (.+)', input)
+    	number = repart.group(1)
+        image_name = repart.group(2)
         db_access.add_total_section_count(image_name, number)
         return check_and_save(image_name)
     else:
-    	repart = re.findall('\$\$-(.+)-\$\$(.*)', input)
+    	repart = re.match('\$\$-(.+)-\$\$.*', input) 
+        section = int(repart.group(1)[:4])
+        image_name = repart.group(1)[4:]
+        blob = input[(len(repart.group(1)) + 6):]
         
-        section = int(repart.group(0)[:4])
-        image_name = repart.group(0)[4:]
-	blob = repart.group(1)
-        
+        print("Image Name: %s" % image_name)
+        print("Section: %d" % (section))
+        print("Blob: %s" % (blob))
         received_sections = db_access.get_received_sections_count(image_name)
         total_sections = db_access.get_total_sections_count(image_name)
 
-        db_access,add_image_section(image_name, section, blob)
+        db_access.add_image_section(image_name, section, blob)
         db_access.update_received_sections(image_name, received_sections + 1)
         return check_and_save(image_name)
 
