@@ -4,6 +4,7 @@ from flask import Flask, request, redirect
 import subprocess
 import twilio.twiml
 import base64
+import time
 import re
 
 app = Flask(__name__)
@@ -61,11 +62,13 @@ def check_and_save(image_name):
     if received_sections != total_sections:
         return None
     
-    sections = get_image_sections(image_name)
+    sections = db_access.get_image_sections(image_name)
     image_text = "".join([section[0] for section in sections])
-
-    with open('output/%s.jpg' % (image_name), 'wb') as image:
-	image.write(base64.b64decode(image_text))
+    
+    time_stamp = time.strftime("%Y%m%d%H%M%S", time.gmtime())
+    with open('output/%s-%s.jpg' % (image_name, time_stamp), 'wb') as image:
+	binary = base64.b64decode(image_text)
+        image.write(binary)
     
     db_access.delete_image_and_info(image_name)
     return("Done Processing Image: %s" % (image_name))
