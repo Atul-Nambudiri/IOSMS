@@ -27,6 +27,7 @@ import android.widget.TextView;
 
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
+import java.io.UnsupportedEncodingException;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -36,7 +37,7 @@ import java.util.regex.Pattern;
 public class MainActivityFragment extends Fragment {
     final int SELECT_IMAGE = 12;
     TextView textToDisplay;
-    static String phoneNumber = "6305213089";
+    static String phoneNumber = "6309480753";
     static String numberAndNameBufferStart = "$$-";
     static String numberAndNameBufferEnd = "-$$";
     static int numberLength = 4;
@@ -121,7 +122,9 @@ public class MainActivityFragment extends Fragment {
         ByteArrayOutputStream baos = new ByteArrayOutputStream();
         bm.compress(Bitmap.CompressFormat.JPEG, 25, baos);
         byte[] b = baos.toByteArray();
+        Log.d("Byte Array Length: ", Integer.toString(b.length * 8));
         String imageText = Base64.encodeToString(b, Base64.DEFAULT);
+        Log.d("Base64 String Length: ", Integer.toString(imageText.length()));
         return imageText;
     }
 
@@ -153,7 +156,6 @@ public class MainActivityFragment extends Fragment {
                 String beginning = numberAndNameBufferStart + number + imageName + numberAndNameBufferEnd;
                 String imagePortion = beginning + imageText.substring(i, end);
                 sendText(imagePortion);
-                Log.d("Text Sending", "Sent Part of the image");
                 try {
                     Thread.sleep(3000);
                 } catch (InterruptedException e) {
@@ -172,6 +174,7 @@ public class MainActivityFragment extends Fragment {
             if(canSendMessages) {
                 SmsManager smsManager = SmsManager.getDefault();
                 smsManager.sendTextMessage(phoneNumber, null, message, null, null);
+                Log.d("Text Sending", "Sent Part of the image");
             }
         }
     }
